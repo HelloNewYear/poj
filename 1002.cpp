@@ -5,6 +5,9 @@
 #define Max 200005
 using namespace std;
 
+struct Node{
+    char s[50];
+}str[Max];
 int cmp(const void *s,const void *t){
     return strcmp((*(Node *)s).s, (*(Node *)t).s);
 }
@@ -15,9 +18,6 @@ int main(){
     for(int i=0;i<26;i++) Map['A'+i]=num[i];
     
     int n;
-    struct Node{
-        char s[50];
-    }str[Max];
     scanf("%d",&n);
     for(int i=0;i<n;i++){
         int pos=0;
