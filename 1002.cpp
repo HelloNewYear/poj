@@ -1,26 +1,28 @@
-#include<cstdio>
 #include<iostream>
-#include<algorithm>
+#include<cstdio>
 #include<cstring>
+#include<algorithm>
 #define Max 200005
 using namespace std;
+
 char num[]={'2','2','2','3','3','3','4','4','4','5','5','5','6','6','6','7','0','7','7','8','8','8','9','9','9','0'};
 int n;
 char Map[100],temp[100];
 struct Node{
     char s[50];
 }str[Max];
+
 void init(){
     for(int i=0;i<26;i++)
     Map[i+'A']=num[i];
     return ;
 }
-int cmp(const void *s,const void *t)
-{
+
+int cmp(const void *s,const void *t){
     return strcmp( (*(Node *)s).s , (*(Node *)t).s);
 }
-int main()
-{
+
+int main(){
     scanf("%d",&n);
     init();
     for(int i=0;i<n;i++)
