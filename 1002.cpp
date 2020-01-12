@@ -13,13 +13,12 @@ struct Node{
 }str[Max];
 
 void init(){
-    for(int i=0;i<26;i++)
-    Map[i+'A']=num[i];
+    for(int i=0;i<26;i++) Map[i+'A']=num[i];
     return ;
 }
 
 int cmp(const void *s,const void *t){
-    return strcmp( (*(Node *)s).s , (*(Node *)t).s);
+    return strcmp((*(Node *)s).s, (*(Node *)t).s);
 }
 
 int main(){
