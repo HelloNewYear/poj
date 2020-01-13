@@ -7,7 +7,7 @@ struct player{
     char name[20];
     char role;
     int time;
-	int flag;
+    int flag;
 }p[22];
 
 bool cmpnumber(player a,player b){
@@ -44,12 +44,12 @@ int get_time(char s[]){
 }
 
 int main(){
-	char str[500];
+    char str[500];
     int D=0,M=0,S=0,G=0;
     for(int i=0;i<22;i++){
         scanf("%d %s %c %[^\n]",&p[i].number,p[i].name,&p[i].role,str);
-		p[i].flag=0;
-		p[i].time=get_time(str);
+        p[i].flag=0;
+        p[i].time=get_time(str);
         if(p[i].role == 'D')D++;
         else if(p[i].role == 'M')M++;
         else if(p[i].role == 'S')S++;
@@ -57,36 +57,36 @@ int main(){
     }
     char team[5];
     scanf("%s",team);
-	int g=1;d=team[0]-'0',m=team[2]-'0',s=team[4]-'0';
+    int g=1;d=team[0]-'0',m=team[2]-'0',s=team[4]-'0';
     if(G<g || D<d || M<m || S<s){
         printf("IMPOSSIBLE TO ARRANGE\n\n");
     }
     sort(p,p+22,cmpnumber);
-	for(int i=0;i<22;i++){
-		if(g){
-			if(p[i].role == 'G')p[i].flag=4;
-			g--;
-		}
-		if(d){
-			if(p[i].role == 'D')p[i].flag=3;
-			d--;
-		}
-		if(m){
-			if(p[i].role == 'M')p[i].flag=2;
-			m--;
-		}
-		if(s){
-			if(p[i].role == 'S')p[i].flag=1;
-			s--;
-		}
-	}
-	
-	sort(p,p+22,cmpflag);
-	for(int i=0;i<22;i++){
-		if(p[i].flag != 0){
-			printf("%d %s %c\n",p[i].number,p[i].name,p[i].role);
-		}
-	}
+    for(int i=0;i<22;i++){
+        if(g){
+            if(p[i].role == 'G')p[i].flag=4;
+            g--;
+        }
+        if(d){
+            if(p[i].role == 'D')p[i].flag=3;
+            d--;
+        }
+        if(m){
+            if(p[i].role == 'M')p[i].flag=2;
+            m--;
+        }
+        if(s){
+            if(p[i].role == 'S')p[i].flag=1;
+            s--;
+        }
+    }
+    
+    sort(p,p+22,cmpflag);
+    for(int i=0;i<22;i++){
+        if(p[i].flag != 0){
+            printf("%d %s %c\n",p[i].number,p[i].name,p[i].role);
+        }
+    }
 
     return 0;
 }
