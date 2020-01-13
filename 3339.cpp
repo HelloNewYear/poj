@@ -46,8 +46,8 @@ int get_time(char s[]){
 
 int main(){
     char str[500];
-    int D=0,M=0,S=0,G=0;
-    for(int i=0;i<22;i++){
+    int D=0,M=0,S=0,G=0,i;
+    for(i=0;i<22;i++){
         scanf("%d %s %c %[^\n]",&p[i].number,p[i].name,&p[i].role,str);
         p[i].time=get_time(str);
         if(p[i].role == 'D')D++;
@@ -61,32 +61,42 @@ int main(){
     if(G<g || D<d || M<m || S<s){
         printf("IMPOSSIBLE TO ARRANGE\n\n");
     }
+    scanf("%d",&i);
     sort(p,p+22,cmpnumber);
-    for(int i=0;i<22;i++){
-        if(g && p[i].role == 'G'){
-			p[i].flag=4;
-            g--;
+    D=d,M=m,S=s,G=g;
+    for(i=0;i<22;i++){
+        if(G && p[i].role == 'G'){
+            G--;
+            p[i].flag=12-g+G;
         }
-        else if(d && p[i].role == 'D'){
-			p[i].flag=3;
-            d--;
+        else if(D && p[i].role == 'D'){
+            D--;
+            p[i].flag=12-g-d+D;
         }
-        else if(m && p[i].role == 'M'){
-			p[i].flag=2;
-            m--;
+        else if(M && p[i].role == 'M'){
+            M--;
+            p[i].flag=12-g-d-m+M;
         }
-        else if(s && p[i].role == 'S'){
-			p[i].flag=1;
-            s--;
+        else if(S && p[i].role == 'S'){
+            S--;
+            p[i].flag=12-g-d-m-s+S;
         }
-		else p[i].flag=0;
+        else p[i].flag=0;
     }
+    //captain
+    int max_time=-1,max_time_number;
+    for(i=0;i<22;i++){
+        if(p[i].flag){
+            if(p[i].time>max_time){
+                max_time=p[i].time;
+                max_time_number=i;
+            }
+        }
+    }
+    p[max_time_number].flag=12;
 
-    //sort(p,p+22,cmpflag);
-	for(int i=0;i<22;i++){
-		printf("%d %s %c %d\n",p[i].number,p[i].name,p[i].role,p[i].time);
-	}
-    for(int i=0;i<22;i++){
+    sort(p,p+22,cmpflag);
+    for(i=0;i<22;i++){
         if(p[i].flag != 0){
             printf("%d %s %c\n",p[i].number,p[i].name,p[i].role);
         }
