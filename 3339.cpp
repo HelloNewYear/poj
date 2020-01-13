@@ -1,4 +1,5 @@
 #include<stdio.h>
+#include<string.h>
 #include<algorithm>
 using namespace std;
 
@@ -57,7 +58,7 @@ int main(){
     }
     char team[5];
     scanf("%s",team);
-    int g=1;d=team[0]-'0',m=team[2]-'0',s=team[4]-'0';
+    int g=1,d=team[0]-'0',m=team[2]-'0',s=team[4]-'0';
     if(G<g || D<d || M<m || S<s){
         printf("IMPOSSIBLE TO ARRANGE\n\n");
     }
@@ -80,8 +81,11 @@ int main(){
             s--;
         }
     }
-    
+
     sort(p,p+22,cmpflag);
+	for(int i=0;i<22;i++){
+		printf("%d %s %c %d\n",p[i].number,p[i].name,p[i].role,p[i].time);
+	}
     for(int i=0;i<22;i++){
         if(p[i].flag != 0){
             printf("%d %s %c\n",p[i].number,p[i].name,p[i].role);
