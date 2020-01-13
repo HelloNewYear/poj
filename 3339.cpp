@@ -5,7 +5,7 @@ using namespace std;
 
 struct player{
     int number;
-    char name[20];
+    char name[30];
     char role;
     int time;
     int flag;
@@ -57,11 +57,12 @@ int main(){
     }
     char team[5];
     scanf("%s",team);
+    scanf("%d",&i);
     int g=1,d=team[0]-'0',m=team[2]-'0',s=team[4]-'0';
     if(G<g || D<d || M<m || S<s){
         printf("IMPOSSIBLE TO ARRANGE\n\n");
+		return 0;
     }
-    scanf("%d",&i);
     sort(p,p+22,cmpnumber);
     D=d,M=m,S=s,G=g;
     for(i=0;i<22;i++){
