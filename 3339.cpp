@@ -61,7 +61,7 @@ int main(){
     int g=1,d=team[0]-'0',m=team[2]-'0',s=team[4]-'0';
     if(G<g || D<d || M<m || S<s){
         printf("IMPOSSIBLE TO ARRANGE\n\n");
-		return 0;
+        return 0;
     }
     sort(p,p+22,cmpnumber);
     D=d,M=m,S=s,G=g;
