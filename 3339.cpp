@@ -49,7 +49,6 @@ int main(){
     int D=0,M=0,S=0,G=0;
     for(int i=0;i<22;i++){
         scanf("%d %s %c %[^\n]",&p[i].number,p[i].name,&p[i].role,str);
-        p[i].flag=0;
         p[i].time=get_time(str);
         if(p[i].role == 'D')D++;
         else if(p[i].role == 'M')M++;
@@ -64,25 +63,26 @@ int main(){
     }
     sort(p,p+22,cmpnumber);
     for(int i=0;i<22;i++){
-        if(g){
-            if(p[i].role == 'G')p[i].flag=4;
+        if(g && p[i].role == 'G'){
+			p[i].flag=4;
             g--;
         }
-        if(d){
-            if(p[i].role == 'D')p[i].flag=3;
+        else if(d && p[i].role == 'D'){
+			p[i].flag=3;
             d--;
         }
-        if(m){
-            if(p[i].role == 'M')p[i].flag=2;
+        else if(m && p[i].role == 'M'){
+			p[i].flag=2;
             m--;
         }
-        if(s){
-            if(p[i].role == 'S')p[i].flag=1;
+        else if(s && p[i].role == 'S'){
+			p[i].flag=1;
             s--;
         }
+		else p[i].flag=0;
     }
 
-    sort(p,p+22,cmpflag);
+    //sort(p,p+22,cmpflag);
 	for(int i=0;i<22;i++){
 		printf("%d %s %c %d\n",p[i].number,p[i].name,p[i].role,p[i].time);
 	}
