@@ -102,6 +102,6 @@ int main(){
             printf("%d %s %c\n",p[i].number,p[i].name,p[i].role);
         }
     }
-
+    printf("\n");
     return 0;
 }
