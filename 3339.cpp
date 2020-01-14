@@ -96,9 +96,10 @@ int main(){
         int max_time=-1,max_time_number;
         for(i=0;i<22;i++){
             if(p[i].flag){
-                if(p[i].time>max_time){
+                if(p[i].time>=max_time){
                     max_time=p[i].time;
                     max_time_number=i;
+                    if(p[i].time == max_time)max_time_number=i;
                 }
             }
         }
