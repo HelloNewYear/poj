@@ -49,7 +49,6 @@ int main(){
         else if(p[0].role == 'M')M++;
         else if(p[0].role == 'S')S++;
         else G++;
-
         for(i=1;i<22;i++){
             scanf("%d %s %c %[^\n]",&p[i].number,p[i].name,&p[i].role,str);
             p[i].time=get_time(str);
@@ -65,6 +64,7 @@ int main(){
             printf("IMPOSSIBLE TO ARRANGE\n\n");
             continue;
         }
+        
         sort(p,p+22,cmpnumber);
         //按number，role顺序赋权值flag
         D=d,M=m,S=s,G=g;
