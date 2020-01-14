@@ -20,11 +20,7 @@ bool cmpflag(player a,player b){
 }
 
 int get_time(char s[]){
-    int len=strlen(s),i;
-    int t1,t2,flag,sum;
-    t1=t2=0;
-    flag=0;
-    sum=0;
+    int len=strlen(s),i,t1=0,t2=0,flag=0,sum=0;
     for(i=0;i<len;i++){
         if(s[i]==' '){
             sum+=(t2-t1+1);
@@ -35,10 +31,8 @@ int get_time(char s[]){
             flag=1;
             continue;
         }
-        if(!flag)
-            t1=t1*10+s[i]-'0';
-        else
-            t2=t2*10+s[i]-'0';
+        if(!flag) t1=t1*10+s[i]-'0';
+        else t2=t2*10+s[i]-'0';
     }
     sum+=t2-t1+1;
     return sum;
@@ -64,7 +58,7 @@ int main(){
             else if(p[i].role == 'S')S++;
             else G++;
         }
-        char team[500];
+        char team[6];
         scanf("%s",team);
         int g=1,d=team[0]-'0',m=team[2]-'0',s=team[4]-'0';
         if(G<g || D<d || M<m || S<s){
@@ -104,7 +98,6 @@ int main(){
             }
         }
         p[max_time_number].flag=12;
-
         sort(p,p+22,cmpflag);
         for(i=0;i<22;i++){
             if(p[i].flag != 0){
