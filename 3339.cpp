@@ -94,7 +94,6 @@ int main(){
                 if(p[i].time>=max_time){
                     max_time=p[i].time;
                     max_time_number=i;
-                    if(p[i].time == max_time)max_time_number=i;
                 }
             }
         }
