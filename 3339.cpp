@@ -66,6 +66,7 @@ int main(){
             continue;
         }
         sort(p,p+22,cmpnumber);
+        //按number，role顺序赋权值flag
         D=d,M=m,S=s,G=g;
         for(i=0;i<22;i++){
             if(G && p[i].role == 'G'){
@@ -86,7 +87,7 @@ int main(){
             }
             else p[i].flag=0;
         }
-        //captain
+        //captain flag 12
         int max_time=-1,max_time_number;
         for(i=0;i<22;i++){
             if(p[i].flag){
@@ -98,6 +99,7 @@ int main(){
             }
         }
         p[max_time_number].flag=12;
+        //按权值flag排序
         sort(p,p+22,cmpflag);
         for(i=0;i<22;i++){
             if(p[i].flag != 0){
