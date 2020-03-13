@@ -2,9 +2,9 @@
 using namespace std;
 
 int main(){
-	int a,b,c,d,w,x,y,z;
-	long s;
-	int f[1000001];
+    int a,b,c,d,w,x,y,z;
+    long s;
+    int f[1000001];
     for(long i=0;i<1000001;i++)f[i]=0;
     a=8;b=5;c=9;d=7;
     for(w=0;1;w++){
@@ -30,5 +30,5 @@ int main(){
     s=0;
     for(long i=0;i<1000001;i++)s+=f[i];
     cout<<1000001-s;
-	return 0;
+    return 0;
 }
