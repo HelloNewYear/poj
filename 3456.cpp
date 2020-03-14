@@ -10,7 +10,6 @@ int main(){
         memset(f,0,sizeof(f));
         f[0]=1;
         s=0;
-        m=-1;
         for(i=0;i<1050001;i++){
             if(i<=1000000&&!f[i])s++;
             if(f[i])f[i+a]=f[i+b]=f[i+c]=f[i+d]=1;
